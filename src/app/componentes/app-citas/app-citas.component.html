@@ -1,0 +1,13 @@
+<app-citas-aleatorias [citaAleatoria]="citaAleatoria"/>
+<app-citas-form-gestion (agregar)="agregarCita($event)" (eliminar)="eliminarCita($event)"/>
+
+<ion-list *ngIf="citas.length > 0">
+  <ion-list-header>
+    Citas Agregadas
+  </ion-list-header>
+  <ion-item *ngFor="let cita of citas">
+    <ion-label>{{ cita.citaText }}</ion-label>
+    <ion-label>{{ cita.autor }}</ion-label>
+    <ion-button (click)="eliminarCita(cita)">Eliminar</ion-button>
+  </ion-item>
+</ion-list>
